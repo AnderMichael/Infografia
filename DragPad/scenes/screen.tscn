@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://tajrcqq2wu36"]
+
+[ext_resource type="Texture2D" uid="uid://lntqckumcwh5" path="res://images/button.svg" id="2_o3rg2"]
+[ext_resource type="PackedScene" uid="uid://cvpftqo4lpye3" path="res://scenes/mario.tscn" id="3_tlgee"]
+[ext_resource type="Script" path="res://scripts/mario.gd" id="4_dc4sm"]
+
+[sub_resource type="GDScript" id="GDScript_b7yy2"]
+script/source = "extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+"
+
+[node name="Screen" type="Node2D"]
+script = SubResource("GDScript_b7yy2")
+
+[node name="Up" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="ButtonUp" type="Button" parent="Up"]
+offset_left = 1600.0
+offset_top = 4000.0
+offset_right = 2408.0
+offset_bottom = 4808.0
+icon = ExtResource("2_o3rg2")
+
+[node name="Down" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="ButtonDown" type="Button" parent="Down"]
+offset_left = 2400.0
+offset_top = 5800.0
+offset_right = 3208.0
+offset_bottom = 6608.0
+rotation = 3.14317
+icon = ExtResource("2_o3rg2")
+
+[node name="Right" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="ButtonRight" type="Button" parent="Right"]
+offset_left = 3400.0
+offset_top = 5000.0
+offset_right = 4208.0
+offset_bottom = 5808.0
+rotation = 1.56883
+icon = ExtResource("2_o3rg2")
+
+[node name="Left" type="Node2D" parent="."]
+scale = Vector2(0.1, 0.1)
+
+[node name="ButtonLeft" type="Button" parent="Left"]
+offset_left = 600.0
+offset_top = 5800.0
+offset_right = 1408.0
+offset_bottom = 6608.0
+rotation = 4.71183
+icon = ExtResource("2_o3rg2")
+
+[node name="Reset" type="Node2D" parent="."]
+
+[node name="Reset" type="Button" parent="Reset"]
+offset_left = 500.0
+offset_top = 520.0
+offset_right = 604.0
+offset_bottom = 551.0
+text = "Reset Player"
+
+[node name="RLeft" type="Node2D" parent="."]
+
+[node name="ButtonRLeft" type="Button" parent="RLeft"]
+offset_left = 500.0
+offset_top = 470.0
+offset_right = 646.0
+offset_bottom = 501.0
+text = "Rotate Left Player"
+
+[node name="RRight" type="Node2D" parent="."]
+
+[node name="ButtonRRight" type="Button" parent="RRight"]
+offset_left = 500.0
+offset_top = 420.0
+offset_right = 656.0
+offset_bottom = 451.0
+text = "Rotate Right Player"
+
+[node name="mario" parent="." instance=ExtResource("3_tlgee")]
+position = Vector2(520, 230)
+script = ExtResource("4_dc4sm")
+
+[connection signal="button_down" from="Up/ButtonUp" to="mario" method="_on_bu_button_down"]
+[connection signal="button_up" from="Up/ButtonUp" to="mario" method="_on_bu_button_up"]
+[connection signal="button_down" from="Down/ButtonDown" to="mario" method="_on_bd_button_down"]
+[connection signal="button_up" from="Down/ButtonDown" to="mario" method="_on_bd_button_up"]
+[connection signal="button_down" from="Right/ButtonRight" to="mario" method="_on_br_button_down"]
+[connection signal="button_up" from="Right/ButtonRight" to="mario" method="_on_br_button_up"]
+[connection signal="button_down" from="Left/ButtonLeft" to="mario" method="_on_bl_button_down"]
+[connection signal="button_up" from="Left/ButtonLeft" to="mario" method="_on_bl_button_up"]
+[connection signal="pressed" from="Reset/Reset" to="mario" method="_on_reset_pressed"]
+[connection signal="button_down" from="RLeft/ButtonRLeft" to="mario" method="_on_button_r_left_button_down"]
+[connection signal="button_up" from="RLeft/ButtonRLeft" to="mario" method="_on_button_r_left_button_up"]
+[connection signal="button_down" from="RRight/ButtonRRight" to="mario" method="_on_button_r_right_button_down"]
+[connection signal="button_up" from="RRight/ButtonRRight" to="mario" method="_on_button_r_right_button_up"]

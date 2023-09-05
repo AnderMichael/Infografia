@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvpftqo4lpye3"]
+
+[ext_resource type="Texture2D" uid="uid://bjvrd1qk0twrf" path="res://images/mario.png" id="1_m30fn"]
+
+[node name="sonic" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_m30fn")

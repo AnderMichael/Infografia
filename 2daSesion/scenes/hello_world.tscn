@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://by2ck3o6vnt28"]
+
+[ext_resource type="Script" path="res://scripts/hello_world.gd" id="1_rslic"]
+[ext_resource type="Texture2D" uid="uid://jr0pxbp8wq8i" path="res://icon.svg" id="2_bg3r6"]
+
+[node name="hello_world" type="Node2D"]
+script = ExtResource("1_rslic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bg3r6")
